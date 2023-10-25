@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">MyToDoList</string>
+
+        <string name="title_activity_add_todo">AddTodoActivity</string>
+        <string-array name="array_options">
+            <item>No Urgency</item>
+            <item>Low Urgency</item>
+            <item>Normal Urgency</item>
+            <item>High Urgency</item>
+        </string-array>
+
+</resources>
