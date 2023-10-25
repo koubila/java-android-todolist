@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.itakademy.mytodolist.data.TodoDatabase;
 import com.itakademy.mytodolist.pojos.Todo;
 
 import java.util.ArrayList;
@@ -84,8 +85,15 @@ public class AddTodoActivity extends AppCompatActivity {
                     toast.show();
 
                 }else{
-                    // créer l'objet
-                    todo = new Todo(edtTodo.getText().toString(), urgency);
+
+                    // créer l'objet via DataAccessObjet
+                    Todo todo2 = new Todo();
+                    todo2.setName(edtTodo.getText().toString());
+                    todo2.setUrgency(spinner.getSelectedItem().toString());
+
+                    //
+                    TodoDatabase.getDb(context).todoDAO().add(todo2);
+
                     // affiche un toast
                     CharSequence text = "Votre toDo est bien ajoutée !";
                     int duration = Toast.LENGTH_SHORT;
